@@ -33,10 +33,10 @@ import java.util.List;
 	String getRenderType();
 
 	default boolean isDoubleBlock() {
-		return false;
+		return true;
 	}
 
 	default boolean hasCustomItemProperties() {
-		return false;
+		return true;
 	}
 }
