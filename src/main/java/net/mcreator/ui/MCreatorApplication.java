@@ -89,7 +89,7 @@ public final class MCreatorApplication {
 		final SplashScreen splashScreen = new SplashScreen();
 
 		new Thread(() -> {
-			splashScreen.setProgress(5, "Loading plugins");
+			splashScreen.setProgress(5, "Loading plugins and base UI");
 
 			PluginLoader.initInstance();
 
@@ -98,12 +98,12 @@ public final class MCreatorApplication {
 			// As plugins are now loaded, preferences from Java plugins can now be loaded
 			PreferencesManager.initNonCore();
 
-			splashScreen.setProgress(10, "Loading UI Themes");
+			splashScreen.setProgress(10, "Loading UX, coloring, UI settings, colors, grading and themes");
 
 			// We load UI theme now as theme plugins are loaded at this point
 			ThemeManager.loadThemes();
 
-			splashScreen.setProgress(15, "Loading UI core");
+			splashScreen.setProgress(15, "Loading the core UI, preloading images and execute the direct code for the interface, and as well applying UIRES preloading for better compatibility.");
 
 			UIRES.preloadImages();
 
@@ -112,7 +112,7 @@ public final class MCreatorApplication {
 
 			taskbarIntegration = new TaskbarIntegration();
 
-			splashScreen.setProgress(25, "Loading interface components");
+			splashScreen.setProgress(25, "Loading additional cores, such as taskbars, buttons, inputs, text formatting, etc");
 
 			// preload help entries cache
 			HelpLoader.preloadCache();
@@ -120,19 +120,19 @@ public final class MCreatorApplication {
 			// load translations after plugins are loaded
 			L10N.initTranslations();
 
-			splashScreen.setProgress(35, "Loading plugin data");
+			splashScreen.setProgress(35, "Loading the data for the plugins. œ£3墓애i! 0111! 7123! E23!");
 
 			// load datalists and icons for them after plugins are loaded
 			BlockItemIcons.init();
 			DataListLoader.preloadCache();
 
-			splashScreen.setProgress(45, "Building plugin cache");
+			splashScreen.setProgress(45, "constructing the plugin cache, and as well adding some extra cache for dumb reasons.");
 
 			// load templates for image makers
 			ImageMakerTexturesCache.init();
 			ArmorMakerTexturesCache.init();
 
-			splashScreen.setProgress(55, "Loading plugin data");
+			splashScreen.setProgress(55, "Loading the data created for the plugins, may cause CPU overload!");
 
 			// load apis defined by plugins after plugins are loaded
 			ModAPIManager.initAPIs();
@@ -144,7 +144,7 @@ public final class MCreatorApplication {
 			BlocklyJavaScriptsLoader.init();
 			BlocklyToolboxesLoader.init();
 
-			splashScreen.setProgress(60, "Processing plugin data");
+			splashScreen.setProgress(60, "Processing the constructed plugin data before grading");
 
 			// load blockly blocks after plugins are loaded
 			BlocklyLoader.init();
@@ -155,7 +155,7 @@ public final class MCreatorApplication {
 			// register mod element types
 			ModElementTypeLoader.loadModElements();
 
-			splashScreen.setProgress(70, "Loading generators");
+			splashScreen.setProgress(70, "Grading plugins and loading generators");
 
 			MCREvent.event(new PreGeneratorsLoadingEvent(this));
 
@@ -176,7 +176,7 @@ public final class MCreatorApplication {
 				i++;
 			}
 
-			splashScreen.setProgress(93, "Initiating user session");
+			splashScreen.setProgress(93, "Initializing accounts, slowing down the performance of the generators, mostly neoforge, to produce less CPU overload, and grading gradles.");
 
 			deviceInfo = new DeviceInfo();
 			isInternet = MCreatorApplication.WEB_API.initAPI();
@@ -189,7 +189,7 @@ public final class MCreatorApplication {
 			// Do not externalize this text
 			discordClient.updatePresence("Just opened", "Version " + Launcher.version.getMajorString());
 
-			splashScreen.setProgress(100, "Loading MCreator windows");
+			splashScreen.setProgress(100, "Loading the windows, and produce the final grading and processing.");
 
 			try {
 				if (Desktop.getDesktop().isSupported(Desktop.Action.APP_ABOUT))
@@ -392,7 +392,7 @@ public final class MCreatorApplication {
 		}
 
 		try {
-			Thread.sleep(1000); // additional sleep for more robustness
+			Thread.sleep(500); // additional sleep for more robustness
 		} catch (Exception ignored) {
 		}
 
